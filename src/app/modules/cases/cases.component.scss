@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+// Font weight
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semiBold: 600;
+$bold: 700;
+
+$font-color: #ffff;
+$box-color: #48426d;
+
+.container-cases {
+  .top-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 100px 0;
+
+    .box {
+      background: $box-color;
+      padding: 50px 20px;
+      border-radius: 15px;
+      .number {
+        margin-bottom: 15px;
+        text-align: center;
+        font-family: "Quicksand", sans-serif;
+        font-weight: $medium;
+        color: $font-color;
+        font-size: 30px;
+      }
+      .description {
+        font-family: "Quicksand", sans-serif;
+        font-weight: $medium;
+        color: $font-color;
+      }
+    }
+  }
+  .container-table {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    .options {
+      width: 41%;
+      display: flex;
+      justify-content: flex-end;
+      .search {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        i {
+          margin-right: 10px;
+          font-size: 20px;
+          color: $font-color;
+          cursor: pointer;
+        }
+        input {
+          border: 0;
+          padding: 5px 10px;
+          border-radius: 4px;
+          background-color: $box-color;
+          color: $font-color;
+          font-family: "Quicksand", sans-serif;
+          font-weight: $regular;
+        }
+      }
+    }
+    table {
+      width: 800px;
+      border-collapse: collapse;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      border-radius: 6px;
+    }
+
+    th,
+    td {
+      padding: 15px;
+      background-color: rgba(255, 255, 255, 0.2);
+      font-family: "Quicksand", sans-serif;
+      font-weight: $medium;
+      color: $font-color;
+    }
+
+    th {
+      text-align: left;
+    }
+
+    thead {
+      th {
+        background-color: #55608f;
+      }
+    }
+
+    tbody {
+      tr {
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.3);
+        }
+      }
+      td {
+        position: relative;
+        &:hover {
+          &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -9999px;
+            bottom: -9999px;
+            background-color: rgba(255, 255, 255, 0.2);
+            z-index: -1;
+          }
+        }
+      }
+    }
+  }
+}

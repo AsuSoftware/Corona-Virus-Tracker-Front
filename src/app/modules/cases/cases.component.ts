@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Cases } from './interfaces/cases';
 
 @Component({
   selector: 'app-cases',
@@ -7,9 +8,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CasesComponent implements OnInit {
 
-  constructor() { }
+  search = null;
 
-  ngOnInit(): void {
+  private cases: Cases[] = [
+    {
+      state: "sdf",
+      country: "dsf",
+      latestTotalCases: 234234,
+      diffFromPrevDay: 567546
+    }
+  ];
+
+  public constructor() { }
+
+  public ngOnInit(): void {
+  }
+
+  public get getCases():Cases[] {
+    if(this.search !== null) {
+      // filter data in function of search input value
+      return this.cases.filter(data => {
+        if(data.country.includes(this.search)) {
+          return data;
+        }
+      });
+    } else {
+      return this.cases;
+    }
   }
 
 }
