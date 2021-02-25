@@ -32,5 +32,28 @@ $font-color: #FFFF;
       font-family: "Quicksand", sans-serif;
       font-weight: $medium;
     }
+    .active {
+      border-bottom: 2px solid red;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .container-nav {
+    padding: 0;
+    .links {
+      position: absolute;
+      background: black;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      bottom: -85%;
+
+      a {
+        margin: 20px 0;
+      }
+    }
   }
 }

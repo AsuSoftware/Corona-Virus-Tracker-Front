@@ -14,6 +14,12 @@ export class CasesComponent implements OnInit {
     {
       state: "sdf",
       country: "dsf",
+      latestTotalCases: 2342344556,
+      diffFromPrevDay: 567546
+    },
+    {
+      state: "abc",
+      country: "dbg",
       latestTotalCases: 234234,
       diffFromPrevDay: 567546
     }
@@ -25,10 +31,10 @@ export class CasesComponent implements OnInit {
   }
 
   public get getCases():Cases[] {
-    if(this.search !== null) {
+    if(this.search !== null && this.search !== '') {
       // filter data in function of search input value
       return this.cases.filter(data => {
-        if(data.country.includes(this.search)) {
+        if(data.country.startsWith(this.search)) {
           return data;
         }
       });

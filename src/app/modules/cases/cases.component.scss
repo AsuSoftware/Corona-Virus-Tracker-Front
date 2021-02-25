@@ -119,3 +119,20 @@ $box-color: #48426d;
     }
   }
 }
+
+
+@media only screen and (max-width: 600px) {
+  .container-cases {
+    .top-info {
+      flex-direction: column;
+      .box:first-child {
+        margin-bottom: 30px;
+      }
+    }
+    .container-table {
+      table {
+        width: 80%;
+      }
+    }
+  }
+}

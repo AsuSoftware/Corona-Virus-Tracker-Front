@@ -1,11 +1,11 @@
 <div class="container-cases">
   <div class="top-info">
     <div class="box">
-      <p class="number">1321351</p>
+      <p class="number">{{1321351 | number}}</p>
       <p class="description">Total cases reported as of today</p>
     </div>
     <div class="box">
-      <p class="number">1321351</p>
+      <p class="number">{{1321351 | number}}</p>
       <p class="description">New cases reported since previous day</p>
     </div>
   </div>
@@ -13,7 +13,7 @@
     <div class="options">
       <div class="search">
         <i class="fas fa-filter"></i>
-        <input type="text" placeholder="Search country..">
+        <input type="text" placeholder="Search country.." [(ngModel)]="search">
       </div>
     </div>
     <table>
@@ -25,41 +25,12 @@
           <th>Changes since last day</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody *ngFor="let case of getCases">
         <tr>
-          <td>Cell 1</td>
-          <td>Cell 2</td>
-          <td>Cell 3</td>
-          <td>Cell 4</td>
-
-        </tr>
-        <tr>
-          <td>Cell 1</td>
-          <td>Cell 2</td>
-          <td>Cell 3</td>
-          <td>Cell 4</td>
-
-        </tr>
-        <tr>
-          <td>Cell 1</td>
-          <td>Cell 2</td>
-          <td>Cell 3</td>
-          <td>Cell 4</td>
-
-        </tr>
-        <tr>
-          <td>Cell 1</td>
-          <td>Cell 2</td>
-          <td>Cell 3</td>
-          <td>Cell 4</td>
-
-        </tr>
-        <tr>
-          <td>Cell 1</td>
-          <td>Cell 2</td>
-          <td>Cell 3</td>
-          <td>Cell 4</td>
-
+          <td>{{case.state}}</td>
+          <td>{{case.country}}</td>
+          <td>{{case.latestTotalCases | number}}</td>
+          <td>{{case.diffFromPrevDay | number}}</td>
         </tr>
       </tbody>
     </table>

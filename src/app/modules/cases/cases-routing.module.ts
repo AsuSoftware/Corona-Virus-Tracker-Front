@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { CasesComponent } from './cases.component';
 
-const routes: Routes = [{ path: '', component: CasesComponent }];
+const routes: Routes = [{ path: '', component: CasesComponent, pathMatch: "full" }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
