@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   constructor(private router: Router) {
     router.events.subscribe((val: any) => {
       if(val instanceof NavigationEnd) {
-        if(val.url === '/') {
+        if(val.url === '/home') {
           this.background = 'url(/assets/img/home-background.jpg)';
         } else {
           this.background = "#312C51";

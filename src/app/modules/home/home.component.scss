@@ -38,3 +38,14 @@ $btn-background: #312C51;
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .container-home {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    .description {
+      margin: 0 20px;
+    }
+  }
+}

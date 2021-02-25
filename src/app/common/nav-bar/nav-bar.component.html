@@ -1,9 +1,13 @@
 <div class="container-nav">
-  <i class="fas fa-bars"></i>
+  <i class="fas fa-bars" (click)="onNavChange()"></i>
   <div class="logo">
     <img src="./assets/img/logo.png" alt="logo">
   </div>
-  <ul class="links">
+  <ul class="links" [@openClose]="isNavOpened ? 'open' : 'closed'">
+    <a routerLink="/" routerLinkActive="active">Home</a>
+    <a routerLink="/cases" routerLinkActive="active">Cases</a>
+  </ul>
+  <ul class="links-mobile" [@openClose]="isNavOpened ? 'open' : 'closed'">
     <a routerLink="/" routerLinkActive="active">Home</a>
     <a routerLink="/cases" routerLinkActive="active">Cases</a>
   </ul>

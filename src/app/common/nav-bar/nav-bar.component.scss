@@ -15,6 +15,14 @@ $font-color: #FFFF;
   position: relative;
   padding: 0 65px;
 
+  .fa-bars {
+    font-size: 25px;
+    color: $font-color;
+    position: absolute;
+    left: 8%;
+    display: none;
+  }
+
   .logo {
     width: 120px;
     img {
@@ -36,13 +44,24 @@ $font-color: #FFFF;
       border-bottom: 2px solid red;
     }
   }
+  .links-mobile {
+    display: none;
+  }
 }
 
 
 @media only screen and (max-width: 600px) {
   .container-nav {
     padding: 0;
+    position: relative;
+    justify-content: center;
+    .fa-bars {
+      display: block;
+    }
     .links {
+      display: none;
+    }
+    .links-mobile {
       position: absolute;
       background: black;
       justify-content: center;
@@ -52,7 +71,14 @@ $font-color: #FFFF;
       bottom: -85%;
 
       a {
-        margin: 20px 0;
+        margin: 0 20px;
+        color: $font-color;
+        text-decoration: none;
+        font-family: "Quicksand", sans-serif;
+        font-weight: $medium;
+      }
+      .active {
+        border-bottom: 2px solid red;
       }
     }
   }
