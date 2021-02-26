@@ -3,12 +3,12 @@
   <div class="logo">
     <img src="./assets/img/logo.png" alt="logo">
   </div>
-  <ul class="links" [@openClose]="isNavOpened ? 'open' : 'closed'">
-    <a routerLink="/" routerLinkActive="active">Home</a>
+  <ul class="links">
+    <a routerLink="/home" routerLinkActive="active">Home</a>
     <a routerLink="/cases" routerLinkActive="active">Cases</a>
   </ul>
   <ul class="links-mobile" [@openClose]="isNavOpened ? 'open' : 'closed'">
-    <a routerLink="/" routerLinkActive="active">Home</a>
-    <a routerLink="/cases" routerLinkActive="active">Cases</a>
+    <a routerLink="/home" routerLinkActive="active" (click)="onNavChange()">Home</a>
+    <a routerLink="/cases" routerLinkActive="active" (click)="onNavChange()">Cases</a>
   </ul>
 </div>

@@ -1,3 +1,5 @@
+import { RestApiService } from './services/rest-api.service';
+import { LoaderService } from './../../common/services/loader.service';
 import { Component, OnInit } from '@angular/core';
 import { Cases } from './interfaces/cases';
 
@@ -8,33 +10,37 @@ import { Cases } from './interfaces/cases';
 })
 export class CasesComponent implements OnInit {
 
-  search = null;
+  public search: string = '';
+  public totalCaseReported: number = 0;
+  public totalNewCase: number = 0;
 
-  private cases: Cases[] = [
-    {
-      state: "sdf",
-      country: "dsf",
-      latestTotalCases: 2342344556,
-      diffFromPrevDay: 567546
-    },
-    {
-      state: "abc",
-      country: "dbg",
-      latestTotalCases: 234234,
-      diffFromPrevDay: 567546
-    }
-  ];
+  private cases: Cases[] = [];
 
-  public constructor() { }
-
-  public ngOnInit(): void {
+  public constructor(private loader: LoaderService, private data: RestApiService) {
+    loader.loaderEmitter.next(true);
   }
 
-  public get getCases():Cases[] {
-    if(this.search !== null && this.search !== '') {
+  public ngOnInit(): void {
+    this.data.getAllCases().subscribe(data => {
+      this.cases = data;
+      this.cases.forEach(data => {
+        this.totalCaseReported += data.latestTotalCases;
+        this.totalNewCase += data.diffFromPrevDay;
+      })
+    },
+    err => {
+      console.log("error: " + err);
+    });
+    setTimeout(() => {
+      this.loader.loaderEmitter.next(false);
+    }, 2000);
+  }
+
+  public get getCases(): Cases[] {
+    if (this.search !== '') {
       // filter data in function of search input value
       return this.cases.filter(data => {
-        if(data.country.startsWith(this.search)) {
+        if (data.country.toLowerCase().startsWith(this.search.toLowerCase())) {
           return data;
         }
       });

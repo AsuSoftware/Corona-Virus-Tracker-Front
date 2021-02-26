@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { CasesRoutingModule } from './cases-routing.module';
 import { CasesComponent } from './cases.component';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 
@@ -12,7 +11,6 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     CasesRoutingModule,
-    HttpClientModule,
     FormsModule
   ]
 })

@@ -30,9 +30,9 @@ $font-color: #FFFF;
     }
   }
   .links {
-    width: 45%;
+    width: 80%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     a {
       margin: 0 50px;
       color: $font-color;
@@ -41,7 +41,7 @@ $font-color: #FFFF;
       font-weight: $medium;
     }
     .active {
-      border-bottom: 2px solid red;
+      border-bottom: 2px solid #55608f;
     }
   }
   .links-mobile {
@@ -63,22 +63,25 @@ $font-color: #FFFF;
     }
     .links-mobile {
       position: absolute;
-      background: black;
+      background: #312c51;
       justify-content: center;
       flex-direction: column;
       align-items: center;
       width: 100%;
-      bottom: -85%;
+      display: flex;
+      bottom: 0;
+      top: 100%;
+      overflow: hidden;
 
       a {
-        margin: 0 20px;
+        margin: 20px 0;
         color: $font-color;
         text-decoration: none;
         font-family: "Quicksand", sans-serif;
         font-weight: $medium;
       }
       .active {
-        border-bottom: 2px solid red;
+        border-bottom: 2px solid #55608f;
       }
     }
   }

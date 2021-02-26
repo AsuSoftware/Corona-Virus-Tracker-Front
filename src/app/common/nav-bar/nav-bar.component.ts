@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   animations: [
     trigger('openClose', [
       state('open', style({
-        width: '60%',
+        height: '230px',
       })),
       state('closed', style({
-        width: '0%',
+        height: '0px',
       })),
       transition('open => closed', [
         animate('0.5s')
@@ -26,12 +26,14 @@ export class NavBarComponent implements OnInit {
 
   private isNavOpen = false;
 
-  constructor() { }
+  public constructor() { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
-  onNavChange(): void {}
+  public onNavChange(): void {
+    this.isNavOpen = !this.isNavOpen;
+  }
 
   public get isNavOpened(): boolean {
     return this.isNavOpen;
